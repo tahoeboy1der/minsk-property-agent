@@ -12,7 +12,6 @@ dependencies = [
     "pandas>=2.0",
     "plotly>=5.18",
     "geopy>=2.4",
-    "playwright>=1.40",
     "python-dotenv>=1.0",
     "requests>=2.31",
     "tenacity>=8.2",
@@ -22,7 +21,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=7.4"]
+dev = ["pytest>=7.4", "playwright>=1.40"]
 
 [project.scripts]
 minsk-agent = "minsk_agent.cli:main"

@@ -10,16 +10,24 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -U pip setuptools wheel
 pip install -r requirements.txt
+pip install -r requirements-dev.txt
 playwright install chromium
 cp .env.example .env
 ```
 
 If `python3 -m venv .venv` fails on an external/exFAT volume, create the virtualenv on a local APFS path (for example `/tmp/minsk-venv`) and point `PYTHONPATH` at this repo’s `src` when running tests.
 
+For an editable install including **Playwright** and **pytest**:
+
+```bash
+pip install -e ".[dev]"
+playwright install chromium
+```
+
 ## Deploy on Streamlit Community Cloud
 
 1. Create a **new empty repository** on GitHub (e.g. `minsk-property-agent`) — **do not** paste `src/...` as the repo URL.
-2. Push **this whole project folder** to that repo (so the root contains `requirements.txt`, `streamlit_app.py`, **`pyproject.toml`**, and the full **`src/`** tree — run `git ls-files src/minsk_agent | head` locally; it must list `explorer_app.py` and other modules).
+2. Push **this whole project folder** to that repo (so the root contains `requirements.txt`, `streamlit_app.py`, **`pyproject.toml`**, and the full **`src/`** tree — run `git ls-files src/minsk_agent | head` locally; it must list `explorer_app.py` and other modules). Root **`requirements.txt` omits Playwright** so Community Cloud can install deps reliably (Playwright is only in **`requirements-dev.txt`** for local scraping).
 3. On [share.streamlit.io](https://share.streamlit.io) → **New app**:
    - **Repository:** `https://github.com/YOUR_USERNAME/YOUR_REPO_NAME` (a normal GitHub URL only).
    - **Branch:** `main` (use `master` only if that is what your GitHub repo actually uses).
@@ -79,4 +87,5 @@ Respect [realt.by robots.txt](https://realt.by/robots.txt), use conservative rat
 
 ```bash
 pytest tests/
+# needs: pip install -r requirements-dev.txt
 ```

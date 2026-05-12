@@ -1,11 +1,11 @@
+# Core deps for Streamlit Cloud + local explorer + pipeline (HTTP fetch path).
+# Playwright is NOT here — it often breaks Cloud builds; use requirements-dev.txt locally.
 pandas>=2.0
 plotly>=5.18
 geopy>=2.4
-playwright>=1.40
 python-dotenv>=1.0
 requests>=2.31
 tenacity>=8.2
 streamlit>=1.28
 folium>=0.15
 streamlit-folium>=0.15
-pytest>=7.4
