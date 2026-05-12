@@ -6,3 +6,7 @@ property_data_final.csv
 minsk_investor_report.html
 data/geocode_cache.sqlite
 .env
+
+# AppleDouble / resource-fork files on non-APFS volumes (e.g. external drives)
+._*
+.DS_Store
