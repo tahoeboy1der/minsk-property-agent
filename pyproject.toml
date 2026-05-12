@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "minsk-property-agent"
+version = "0.1.0"
+description = "Belarus (Minsk region) real estate research, scoring, and Plotly dashboard"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas>=2.0",
+    "plotly>=5.18",
+    "geopy>=2.4",
+    "playwright>=1.40",
+    "python-dotenv>=1.0",
+    "requests>=2.31",
+    "tenacity>=8.2",
+    "streamlit>=1.28",
+    "folium>=0.15",
+    "streamlit-folium>=0.15",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+minsk-agent = "minsk_agent.cli:main"
+minsk-explorer = "minsk_agent.cli:explorer_main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
