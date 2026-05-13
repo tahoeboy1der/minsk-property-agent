@@ -1,3 +1,0 @@
-[console_scripts]
-minsk-agent = minsk_agent.cli:main
-minsk-explorer = minsk_agent.cli:explorer_main
