@@ -1,12 +1,8 @@
 """
 Streamlit Community Cloud entry (repo root).
 
-Loads `src/minsk_agent/explorer_app.py` by file path — no `pip install .` or
-`import minsk_agent` required. That way the app runs even when the package
-is not installed, as long as this file and the explorer source exist in the repo.
-
-If you see "Missing source files" on Cloud, your GitHub repo is incomplete:
-push the full `src/` directory (and `pyproject.toml` if you use local packaging).
+Loads `src/minsk_agent/explorer_app.py` by file path — no `pip install .` required.
+If `src/` is missing on GitHub, the app shows fix instructions.
 """
 
 from __future__ import annotations
